@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" name="viewport">
+
+  <title>simpler-sidebar</title>
+  <meta name="description" content="A jQuery plugin that allows to create a side nav as in modern mobile apps. It aims to simplicity so that everybody can use it no matter if expert programmers or not">
+
+  <link rel="canonical" href="https://simple-sidebar.github.io/simpler-sidebar/right/">
+  <link rel="alternate" type="application/rss+xml" title="simpler-sidebar" href="https://simple-sidebar.github.io/simpler-sidebar/feed.xml">
+
+  <link href="https://simple-sidebar.github.io/simpler-sidebar/stylesheets/main.css" rel="stylesheet" type="text/css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+  <div class="main-header">
+    <div class="header container">
+      <h1 class="page-title">simpler-sidebar</h1>
+      <p class="page-description">A jQuery plugin that allows to create a side nav as in modern mobile apps. It aims to simplicity so that everybody can use it no matter if expert programmers or not</p>
+    </div>
+  </div>
+
+  <div class="main-content container">
+    <p>layout demo mono right</p>
+
+  </div>
+
+  <div class="main-navbar">
+    <div id="right-sidebar-trigger" class="sidebar-trigger float-right">
+      <i class="material-icons">&#xE5D2;</i>
+    </div>
+  </div>
+
+
+  <div class="sidebar sidebar-right" id="sidebar-right">
+    <div class="sidebar-wrapper">
+      <header>
+        <h1>simpler-sidebar</h1>
+      </header>
+
+      <nav>
+        <ul class="unstyle">
+          <li>
+            <a href="https://simple-sidebar.github.io/simpler-sidebar/" class="quitter">Home</a>
+          </li>
+        
+          <li>
+            <a href="about" class="quitter">About</a>
+          </li>
+        
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://simple-sidebar.github.io/simpler-sidebar/vendor/js/jquery.simpler-sidebar.min.js"></script>
+
+  
+  <!-- double sidebar -->
+    <script>
+;( function( $, window, document, undefined ) {
+
+  "use strict";
+
+  $( document ).ready( function() {
+    var rightOptions = {
+      attr: "sidebar-right",
+      init: "closed",
+      top: 0,
+      selectors: {
+        trigger: "#right-sidebar-trigger",
+        quitter: ".quitter"
+      },
+      animation: {
+        easing: "easeOutQuint"
+      },
+      sidebar: {
+        width: 250
+      }
+    },
+      leftOptions = {
+        attr: "sidebar-left",
+        init: "closed",
+        align: "left",
+        top: 0,
+        selectors: {
+          trigger: "#left-sidebar-trigger",
+          quitter: ".quitter"
+        },
+        animation: {
+          easing: "easeOutQuint"
+        },
+        sidebar: {
+          width: 300
+        }
+      };
+
+    $( "#sidebar-right").simplerSidebar( rightOptions );
+    $( "#sidebar-left").simplerSidebar( leftOptions );
+  } );
+
+} )( jQuery, window, document );
+</script>
+
+  
+
+</body>
+</html>
