@@ -38,6 +38,7 @@
     <div id="sidebar-main-trigger" class="sidebar-trigger float-left">
       <i class="material-icons">&#xE5D2;</i>
     </div>
+    
   </div>
 
 
@@ -72,15 +73,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://simple-sidebar.github.io/simpler-sidebar/vendor/js/jquery.simpler-sidebar.min.js"></script>
 
-  
-  <!--sidebar-->
-    <script>
+  <script>
 ;( function( $, window, document, undefined ) {
 
   "use strict";
 
   $( document ).ready( function() {
     $( "#sidebar-main" ).simplerSidebar( {
+      attr: "sidebar-main",
       init: "closed",
       align: "left",
       top: 0,
@@ -95,12 +95,13 @@
         easing: "easeOutQuint"
       }
     } );
+
+    
   } );
 
 } )( jQuery, window, document );
 </script>
 
-  
 
 </body>
 </html>
