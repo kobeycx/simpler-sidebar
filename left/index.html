@@ -28,18 +28,18 @@
   </div>
 
   <div class="main-content container">
-    <p>layout demo mono right</p>
+    <p>layout demo mono left</p>
 
   </div>
 
   <div class="main-navbar">
-    <div id="left-sidebar-trigger" class="sidebar-trigger float-left">
+    <div id="sidebar-main-trigger" class="sidebar-trigger float-left">
       <i class="material-icons">&#xE5D2;</i>
     </div>
   </div>
 
 
-  <div class="sidebar sidebar-left" id="sidebar-left">
+  <div class="sidebar sidebar-left" id="sidebar-main">
     <div class="sidebar-wrapper">
       <header>
         <h1>simpler-sidebar</h1>
@@ -73,28 +73,29 @@
   "use strict";
 
   $( document ).ready( function() {
-    var rightOptions = {
-      attr: "sidebar-right",
-      init: "closed",
+    var mainSidebar = {
+      attr: "sidebar-main",
+      init: "",
+      align: "left"
       top: 0,
       selectors: {
-        trigger: "#right-sidebar-trigger",
+        trigger: "#sidebar-main-trigger",
         quitter: ".quitter"
       },
       animation: {
         easing: "easeOutQuint"
       },
       sidebar: {
-        width: 250
+        width: 350
       }
     },
-      leftOptions = {
-        attr: "sidebar-left",
-        init: "closed",
-        align: "left",
+      secondarySidebar = {
+        attr: "sidebar-secondary",
+        init: "",
+        align: "right"
         top: 0,
         selectors: {
-          trigger: "#left-sidebar-trigger",
+          trigger: "#sidebar-secondary-trigger",
           quitter: ".quitter"
         },
         animation: {
@@ -103,10 +104,10 @@
         sidebar: {
           width: 300
         }
-      };
+      },
 
-    $( "#sidebar-right").simplerSidebar( rightOptions );
-    $( "#sidebar-left").simplerSidebar( leftOptions );
+    $( "#sidebar-main").simplerSidebar( mainSidebar );
+    $( "#sidebar-secondary").simplerSidebar( secondarySidebar );
   } );
 
 } )( jQuery, window, document );

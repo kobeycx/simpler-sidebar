@@ -188,13 +188,13 @@
   </div>
 
   <div class="main-navbar">
-    <div id="left-sidebar-trigger" class="sidebar-trigger float-left">
+    <div id="sidebar-main-trigger" class="sidebar-trigger float-left">
       <i class="material-icons">&#xE5D2;</i>
     </div>
   </div>
 
 
-  <div class="sidebar sidebar-left" id="sidebar-left">
+  <div class="sidebar sidebar-left" id="sidebar-main">
     <div class="sidebar-wrapper">
       <header>
         <h1>simpler-sidebar</h1>
@@ -228,14 +228,12 @@
   "use strict";
 
   $( document ).ready( function() {
-    $(
-      "#sidebar-left"
-    ).simplerSidebar( {
+    $( "#sidebar-main" ).simplerSidebar( {
       init: "closed",
       align: "left",
       top: 0,
       selectors: {
-        trigger: "#left-sidebar-trigger",
+        trigger: "#sidebar-main-trigger",
         quitter: ".quitter"
       },
       sidebar: {
