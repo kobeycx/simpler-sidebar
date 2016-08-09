@@ -1,1 +1,0 @@
-# simpler-sidebar github page
