@@ -28,7 +28,9 @@
   </div>
 
   <div class="main-content container">
-    <p>layout demo mono left</p>
+    <p>layout: default-demo</p>
+
+<p>align: left</p>
 
   </div>
 
@@ -50,11 +52,16 @@
           <li>
             <a href="https://simple-sidebar.github.io/simpler-sidebar/" class="quitter">Home</a>
           </li>
-        
+        </ul>
+
+        <h6>Demo</h6>
+        <ul>
           <li>
-            <a href="about" class="quitter">About</a>
+            <a href="https://simple-sidebar.github.io/simpler-sidebar/right">Right</a>
           </li>
-        
+          <li>
+            <a href="https://simple-sidebar.github.io/simpler-sidebar/left">Left</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -66,48 +73,28 @@
   <script src="https://simple-sidebar.github.io/simpler-sidebar/vendor/js/jquery.simpler-sidebar.min.js"></script>
 
   
-  <!-- double sidebar -->
+  <!--sidebar-->
     <script>
 ;( function( $, window, document, undefined ) {
 
   "use strict";
 
   $( document ).ready( function() {
-    var mainSidebar = {
-      attr: "sidebar-main",
-      init: "",
+    $( "#sidebar-main" ).simplerSidebar( {
+      init: "closed",
       align: "left",
       top: 0,
       selectors: {
         trigger: "#sidebar-main-trigger",
         quitter: ".quitter"
       },
+      sidebar: {
+        width: 300
+      },
       animation: {
         easing: "easeOutQuint"
-      },
-      sidebar: {
-        width: 350
       }
-    },
-      secondarySidebar = {
-        attr: "sidebar-secondary",
-        init: "",
-        align: "right",
-        top: 0,
-        selectors: {
-          trigger: "#sidebar-secondary-trigger",
-          quitter: ".quitter"
-        },
-        animation: {
-          easing: "easeOutQuint"
-        },
-        sidebar: {
-          width: 300
-        }
-      },
-
-    $( "#sidebar-main").simplerSidebar( mainSidebar );
-    $( "#sidebar-secondary").simplerSidebar( secondarySidebar );
+    } );
   } );
 
 } )( jQuery, window, document );
