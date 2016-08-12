@@ -54,7 +54,7 @@
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">$rightSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-right"</span> <span class="p">),</span>
       <span class="nx">$leftSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-left"</span> <span class="p">);</span>
-      <span class="nx">optSidebarRight</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">optSidebarLeft</span> <span class="o">=</span> <span class="p">{</span>
           <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
               <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#toggle-sidebar-right"</span><span class="p">,</span>
               <span class="na">quitter</span><span class="p">:</span> <span class="s2">".close-sb"</span>
@@ -63,7 +63,7 @@
               <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
           <span class="p">}</span>
       <span class="p">},</span>
-      <span class="nx">optSidebarLeft</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">optSidebarRight</span> <span class="o">=</span> <span class="p">{</span>
           <span class="na">align</span><span class="p">:</span> <span class="s2">"left"</span><span class="p">,</span>
           <span class="na">top</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span>
           <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
@@ -118,6 +118,7 @@
         <ul>
           
         </ul>
+      </nav>
     </div>
   </div>
 
@@ -168,6 +169,9 @@
           </li>
           <li class="quitter">
             <a href="/simpler-sidebar/multiple">Multiple instances</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/multiple-functions">Multiple instances and custon functions</a>
           </li>
         </ul>
       </nav>

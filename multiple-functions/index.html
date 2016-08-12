@@ -14,7 +14,7 @@
 
   
 
-  <link rel="canonical" href="https://simple-sidebar.github.io/simpler-sidebar/functions/">
+  <link rel="canonical" href="https://simple-sidebar.github.io/simpler-sidebar/multiple-functions/">
   <link rel="alternate" type="application/rss+xml" title="simpler-sidebar" href="https://simple-sidebar.github.io/simpler-sidebar/feed.xml">
 
   <link rel="stylesheet" href="/simpler-sidebar/stylesheets/main.css">
@@ -38,7 +38,7 @@
       <a href="https://badge.fury.io/bo/simpler-sidebar"><img src="https://badge.fury.io/bo/simpler-sidebar.svg" alt="Bower version" height="18"></a>
     </div>
 
-    <p class="page-description">simpler sidebar aligned to the right and with some custom functions</p>
+    <p class="page-description">multiple instances and custom functions</p>
   </div>
 </div>
 <div class="secondary-header">
@@ -52,7 +52,8 @@
     <h2 id="example-of-usage">Example of usage</h2>
 
 <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">$rightSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#main-sidebar"</span> <span class="p">),</span>
+  <span class="kd">var</span> <span class="nx">$rightSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-right"</span> <span class="p">),</span>
+    <span class="nx">$leftSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-left"</span> <span class="p">),</span>
     <span class="nx">callopen</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">alert</span><span class="p">(</span> <span class="s2">"callback called after the sidebar's been opened"</span> <span class="p">);</span>
     <span class="p">},</span>
@@ -70,48 +71,87 @@
     <span class="p">},</span>
     <span class="nx">onboth</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">alert</span><span class="p">(</span> <span class="s2">"function called while both animations are triggered"</span> <span class="p">);</span>
-    <span class="p">};</span>
+    <span class="p">},</span>
 
-  <span class="nx">$rightSidebar</span><span class="p">.</span><span class="nx">simplerSidebar</span><span class="p">(</span> <span class="p">{</span>
-    <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#toggle-sidebar"</span><span class="p">,</span>
-      <span class="na">quitter</span><span class="p">:</span> <span class="s2">".close-sb"</span>
-    <span class="p">},</span>
-    <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
-    <span class="p">},</span>
-    <span class="na">events</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">on</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">open</span><span class="p">:</span> <span class="nx">onopen</span><span class="p">,</span>
-          <span class="na">close</span><span class="p">:</span> <span class="nx">onclose</span><span class="p">,</span>
-          <span class="na">both</span><span class="p">:</span> <span class="nx">onboth</span>
-        <span class="p">}</span>
+    <span class="nx">optSidebarLeft</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">align</span><span class="p">:</span> <span class="s2">"left"</span><span class="p">,</span>
+      <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#toggle-sidebar-right"</span><span class="p">,</span>
+        <span class="na">quitter</span><span class="p">:</span> <span class="s2">".close-sb"</span>
       <span class="p">},</span>
-      <span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">open</span><span class="p">:</span> <span class="nx">callopen</span><span class="p">,</span>
-          <span class="na">close</span><span class="p">:</span> <span class="nx">callclose</span><span class="p">,</span>
-          <span class="na">both</span><span class="p">:</span> <span class="nx">callboth</span>
-        <span class="p">}</span>
+      <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
       <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span> <span class="p">);</span>
-<span class="p">}</span> <span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">optSidebarRight</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">top</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span>
+      <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#toggle-sidebar-left"</span><span class="p">,</span>
+        <span class="na">quitter</span><span class="p">:</span> <span class="s2">".close-sb"</span>
+      <span class="p">},</span>
+      <span class="na">sidebar</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">width</span><span class="p">:</span> <span class="mi">500</span>
+      <span class="p">},</span>
+      <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
+      <span class="p">},</span>
+      <span class="na">mask</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">display</span><span class="p">:</span> <span class="kc">false</span>
+      <span class="p">},</span>
+      <span class="na">events</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">on</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">open</span><span class="p">:</span> <span class="nx">onopen</span><span class="p">,</span>
+            <span class="na">close</span><span class="p">:</span> <span class="nx">onclose</span><span class="p">,</span>
+            <span class="na">both</span><span class="p">:</span> <span class="nx">onboth</span>
+          <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">open</span><span class="p">:</span> <span class="nx">callopen</span><span class="p">,</span>
+            <span class="na">close</span><span class="p">:</span> <span class="nx">callclose</span><span class="p">,</span>
+            <span class="na">both</span><span class="p">:</span> <span class="nx">callboth</span><span class="p">,</span>
+            <span class="na">freezePage</span><span class="p">:</span> <span class="kc">false</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">};</span>
+
+  <span class="nx">$rightSidebar</span><span class="p">.</span><span class="nx">simplerSidebar</span><span class="p">(</span> <span class="nx">optSidebarRight</span> <span class="p">);</span>
+  <span class="nx">$leftSidebar</span><span class="p">.</span><span class="nx">simplerSidebar</span><span class="p">(</span> <span class="nx">optSidebarLeft</span> <span class="p">);</span>
 </code></pre>
 </div>
 
   </div>
 
   <div class="main-navbar">
-    <div id="sidebar-main-trigger" class="sidebar-trigger float-right">
+    <div id="sidebar-main-trigger" class="sidebar-trigger float-left">
       <i class="material-icons">&#xE5D2;</i>
+    </div>
+    
+    <div id="sidebar-secondary-trigger" class="sidebar-trigger float-right">
+      <i class="material-icons">&#xE5D4;</i>
     </div>
     
   </div>
 
 
-  <div class="sidebar sidebar-right" id="sidebar-main">
+  <!--sidebar-secondary-->
+  <div class="sidebar sidebar-right" id="sidebar-secondary">
+    <div class="sidebar-wrapper">
+      <header>
+        <h1>simpler-sidebar</h1>
+      </header>
+
+      <nav>
+        <ul>
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!--sidebar-main-->
+  <div class="sidebar sidebar-left" id="sidebar-main">
     <div class="sidebar-wrapper">
       <header>
         <h1>simpler-sidebar</h1>
@@ -199,7 +239,7 @@
     $( "#sidebar-main" ).simplerSidebar( {
       attr: "sidebar-main",
       init: "closed",
-      align: "right",
+      align: "left",
       top: 0,
       selectors: {
         trigger: "#sidebar-main-trigger",
@@ -213,6 +253,27 @@
       },
       mask: {
         display: true
+      }
+    } );
+
+    
+    $( "#sidebar-secondary" ).simplerSidebar( {
+      attr: "sidebar-secondary",
+      init: "closed",
+      align: "right",
+      top: 56,
+      selectors: {
+        trigger: "#sidebar-secondary-trigger",
+        quitter: ".quitter"
+      },
+      sidebar: {
+        width: 300
+      },
+      animation: {
+        easing: "easeOutQuint"
+      },
+      mask: {
+        display: false
       },
       events: {
         on: {
@@ -226,13 +287,12 @@
           animation: {
             open: callopen,
             close: callclose,
-            both: callboth
+            both: callboth,
+            freezePage: false
           }
         }
       }
-      
     } );
-
     
   } );
 
