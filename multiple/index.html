@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="HandheldFriendly" content="True">
+
+  <title>simpler-sidebar</title>
+  <meta name="description" content="A jQuery plugin that allows to create a side nav as in modern mobile apps. It aims to simplicity so that everybody can use it no matter if expert programmers...">
+  <meta name="keywords" content="">
+
+  <meta name="theme-color" content="">
+
+  
+
+  <link rel="canonical" href="https://simple-sidebar.github.io/simpler-sidebar/multiple/">
+  <link rel="alternate" type="application/rss+xml" title="simpler-sidebar" href="https://simple-sidebar.github.io/simpler-sidebar/feed.xml">
+
+  <link rel="stylesheet" href="/simpler-sidebar/stylesheets/main.css">
+  <link rel="stylesheet" href="/simpler-sidebar/stylesheets/custom.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+  <div class="main-header">
+  <div class="header container">
+    <h1 class="page-title">simpler-sidebar</h1>
+
+    <div class="badges">
+      <a href="https://badge.fury.io/gh/simple-sidebar%2Fsimpler-sidebar"><img src="https://badge.fury.io/gh/simple-sidebar%2Fsimpler-sidebar.svg" alt="GitHub version"></a>
+      <a href="" target="_blank"><img src="https://travis-ci.org/simple-sidebar/simpler-sidebar.svg?branch=master" alt="Travis status build" height="18"></a>
+      <a href="https://badge.fury.io/js/simpler-sidebar"><img src="https://badge.fury.io/js/simpler-sidebar.svg" alt="npm version" height="18"></a>
+      <a href="https://badge.fury.io/bo/simpler-sidebar"><img src="https://badge.fury.io/bo/simpler-sidebar.svg" alt="Bower version" height="18"></a>
+    </div>
+
+    <p class="page-description">multiple instances</p>
+  </div>
+</div>
+<div class="secondary-header">
+  <div class="container">
+    Press <i class="material-icons">&#xE5D2;</i> or <i class="material-icons">&#xE5D4;</i> to open the sidebar
+  </div>
+</div>
+
+
+  <div class="main-content container">
+    <h2 id="example-of-usage">Example of usage</h2>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="nb">document</span> <span class="p">).</span><span class="nx">ready</span><span class="p">(</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">$rightSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-right"</span> <span class="p">),</span>
+      <span class="nx">$leftSidebar</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-left"</span> <span class="p">);</span>
+      <span class="nx">optSidebarRight</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#toggle-sidebar-right"</span><span class="p">,</span>
+              <span class="na">quitter</span><span class="p">:</span> <span class="s2">".close-sb"</span>
+          <span class="p">},</span>
+          <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
+          <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nx">optSidebarLeft</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="na">align</span><span class="p">:</span> <span class="s2">"left"</span><span class="p">,</span>
+          <span class="na">top</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span>
+          <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#toggle-sidebar-left"</span><span class="p">,</span>
+              <span class="na">quitter</span><span class="p">:</span> <span class="s2">".close-sb"</span>
+          <span class="p">},</span>
+          <span class="na">sidebar</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">width</span><span class="p">:</span> <span class="mi">500</span>
+          <span class="p">},</span>
+          <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
+          <span class="p">},</span>
+          <span class="na">mask</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">display</span><span class="p">:</span> <span class="kc">false</span>
+          <span class="p">},</span>
+          <span class="na">events</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">callbacks</span><span class="p">:</span> <span class="p">{</span>
+                  <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+                      <span class="na">freezePage</span><span class="p">:</span> <span class="kc">false</span>
+                  <span class="p">}</span>
+              <span class="p">}</span>
+          <span class="p">}</span>
+      <span class="p">};</span>
+
+  <span class="nx">$rightSidebar</span><span class="p">.</span><span class="nx">simplerSidebar</span><span class="p">(</span> <span class="nx">optSidebarRight</span> <span class="p">);</span>
+  <span class="nx">$leftSidebar</span><span class="p">.</span><span class="nx">simplerSidebar</span><span class="p">(</span> <span class="nx">optSidebarLeft</span> <span class="p">);</span>
+</code></pre>
+</div>
+
+  </div>
+
+  <div class="main-navbar">
+    <div id="sidebar-main-trigger" class="sidebar-trigger float-left">
+      <i class="material-icons">&#xE5D2;</i>
+    </div>
+    
+    <div id="sidebar-secondary-trigger" class="sidebar-trigger float-right">
+      <i class="material-icons">&#xE5D4;</i>
+    </div>
+    
+  </div>
+
+
+  <!--sidebar-secondary-->
+  <div class="sidebar sidebar-right" id="sidebar-secondary">
+    <div class="sidebar-wrapper">
+      <header>
+        <h1>simpler-sidebar</h1>
+      </header>
+
+      <nav>
+        <ul>
+          
+        </ul>
+    </div>
+  </div>
+
+  <!--sidebar-main-->
+  <div class="sidebar sidebar-left" id="sidebar-main">
+    <div class="sidebar-wrapper">
+      <header>
+        <h1>simpler-sidebar</h1>
+      </header>
+
+      <nav>
+        <ul>
+          <li class="quitter">
+            <a href="/simpler-sidebar/">Home</a>
+          </li>
+        </ul>
+
+        <ul>
+          <li class="list-title">
+            demo
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/right">Right</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/right-top">Right Top</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/left">Left</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/left-top">Left Top</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/init-opened">Init: opened</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/width">custom width</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/mask-none">hidden mask</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/freezepage-none">Allow scrolling</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/functions">Custom functions</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/multiple">Multiple instances</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://simple-sidebar.github.io/simpler-sidebar/vendor/js/jquery.simpler-sidebar.min.js"></script>
+
+  <script>
+;( function( $, window, document, undefined ) {
+
+  "use strict";
+
+  $( document ).ready( function() {
+    $( "#sidebar-main" ).simplerSidebar( {
+      attr: "sidebar-main",
+      init: "closed",
+      align: "left",
+      top: 0,
+      selectors: {
+        trigger: "#sidebar-main-trigger",
+        quitter: ".quitter"
+      },
+      sidebar: {
+        width: 350
+      },
+      animation: {
+        easing: "easeOutQuint"
+      },
+      mask: {
+        display: true
+      },
+      events: {
+        callbacks: {
+          animation: {
+            freezePage: true
+          }
+        }
+      }
+    } );
+
+    
+    $( "#sidebar-secondary" ).simplerSidebar( {
+      attr: "sidebar-secondary",
+      init: "closed",
+      align: "right",
+      top: 56,
+      selectors: {
+        trigger: "#sidebar-secondary-trigger",
+        quitter: ".quitter"
+      },
+      sidebar: {
+        width: 300
+      },
+      animation: {
+        easing: "easeOutQuint"
+      },
+      mask: {
+        display: false
+      },
+      events: {
+        callbacks: {
+          animation: {
+            freezePage: false
+          }
+        }
+      }
+    } );
+    
+  } );
+
+} )( jQuery, window, document );
+</script>
+
+</body>
+</html>
