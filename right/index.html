@@ -38,7 +38,7 @@
       <a href="https://badge.fury.io/bo/simpler-sidebar"><img src="https://badge.fury.io/bo/simpler-sidebar.svg" alt="Bower version" height="18"></a>
     </div>
 
-    <p class="page-description">A jQuery plugin that allows to create a side nav as in modern mobile apps. It aims to simplicity so that everybody can use it no matter if expert programmers or not</p>
+    <p class="page-description">simpler sidebar aligned to the right</p>
   </div>
 </div>
 <div class="secondary-header">
@@ -49,9 +49,19 @@
 
 
   <div class="main-content container">
-    <p>layout: default-demo</p>
+    <h2 id="example-of-usage">Example of usage</h2>
 
-<p>align: right</p>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span> <span class="s2">"#sidebar-right"</span> <span class="p">).</span><span class="nx">simplerSidebar</span><span class="p">(</span> <span class="p">{</span>
+  <span class="na">selectors</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">trigger</span><span class="p">:</span> <span class="s2">"#sidebar-main-trigger"</span><span class="p">,</span>
+    <span class="na">quitter</span><span class="p">:</span> <span class="s2">".quitter"</span>
+  <span class="p">},</span>
+  <span class="na">animation</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">easing</span><span class="p">:</span> <span class="s2">"easeOutQuint"</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+</code></pre>
+</div>
 
   </div>
 
@@ -71,8 +81,8 @@
 
       <nav>
         <ul>
-          <li>
-            <a href="/simpler-sidebar/" class="quitter">Home</a>
+          <li class="quitter">
+            <a href="/simpler-sidebar/">Home</a>
           </li>
         </ul>
 
@@ -80,11 +90,35 @@
           <li class="list-title">
             demo
           </li>
-          <li>
+          <li class="quitter">
             <a href="/simpler-sidebar/right">Right</a>
           </li>
-          <li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/right-top">Right Top</a>
+          </li>
+          <li class="quitter">
             <a href="/simpler-sidebar/left">Left</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/left-top">Left Top</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/init-opened">Init: opened</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/width">custom width</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/mask-none">hidden mask</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/freezepage-none">Allow scrolling</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/functions">Custom functions</a>
+          </li>
+          <li class="quitter">
+            <a href="/simpler-sidebar/multiple">Multiple instances</a>
           </li>
         </ul>
       </nav>
@@ -112,10 +146,20 @@
         quitter: ".quitter"
       },
       sidebar: {
-        width: 300
+        width: 350
       },
       animation: {
         easing: "easeOutQuint"
+      },
+      mask: {
+        display: true
+      },
+      events: {
+        callbacks: {
+          animation: {
+            freezePage: true
+          }
+        }
       }
     } );
 
@@ -124,7 +168,6 @@
 
 } )( jQuery, window, document );
 </script>
-
 
 </body>
 </html>
