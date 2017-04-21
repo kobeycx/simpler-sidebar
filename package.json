@@ -59,11 +59,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0"
   },
-  "browser": {
-    "jquery": "./demo/assets/js/jquery-1.12.4.js",
-    "jquery-ui-browserify": "./demo/assets/js/jquery-ui.js",
-    "simpler-sidebar": "./dist/jquery.simpler-sidebar.js"
-  },
   "browserify-shim": {
     "jquery": "window.$",
     "three": "global:THREE",
